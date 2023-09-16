@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Descubra seu signo antigo</title>
+<script type="text/javascript">
+  
+  
+function getSign() {  
+    // antes de tudo temos duas constantes para armazenar os valores do input e da mensagem. O querySelector é usado para obter alguma coisa. Dentro do parênteses fica a fonte da informação.
+    const nascimento = document.querySelector("#ano").valueAsNumber;
+    const message = document.querySelector("#message");
+    // abaixo ficam as informações base referentes aos doze signos
+    const signos = [
+    {name:"do touro",    Sdate: [1913, 1925, 1937, 1949, 1961, 1973, 1985, 1997, 2009, 2021], imagem: '<img src = touro.jpg>', info:"Quem nasce no ano do touro tende a ser sereno, razoável. Em alguns casos pode se apegar um pouco às tradições, mas isso não o impede de acolher as pessoas como elas são. Deve tomar cuidado com seu ritmo e não deixar as boas chances passarem."},
+    {name:"do rato",   Sdate: [1912, 1924, 1936, 1948, 1960, 1972, 1984, 1996, 2008, 2020], imagem: '<img src = rato.jpg>', info:"Quem nasce no ano do rato tende a ser sincero, astuto na hora de resolver problemas. Eles são tanto indagadores quanto críticos e precisam tomar cuidado para não serem exigentes demais consigo e com os outros."},
+    {name:"do tigre",  Sdate: [1914, 1926, 1938, 1950, 1962, 1974, 1986, 1998, 2010, 2022], imagem: '<img src = tigre.jpg>', info: "A pessoa de tigre é fascinante, intensa e ágil,  chega a ser envolvente quando está disposta a atingir um objetivo. Deve se policiar para não agir sem pensar."},
+    {name:"do coelho", Sdate: [1915, 1927, 1939, 1951, 1963, 1975, 1987, 1999, 2011, 2023], imagem: '<img src = coelho.jpg>', info:"É o signo dos mais sortudos do horóscopo, eles são espontaneamente atrativos, ajuizados e ponderados. Devem ficar atentos quanto à auto afirmação para que não se excedam. "},
+    {name:"do dragão", Sdate: [1916, 1928, 1940, 1952, 1964, 1976, 1988, 2000, 2012, 2024], imagem: '<img src = dragao.jpg>', info:"Os nascidos nesse ano costumam ser cheios de energia, levam a vida de modo exuberante. Devem tomar cuidado para não menosprezar as pessoas ao redor se comportando de jeito grosseiro."},
+    {name:"da serpente", Sdate: [1917, 1929, 1941, 1953, 1965, 1977, 1989, 2001, 2013, 2025], imagem: '<img src = serpente.jpg>', info:"É quando nascem os pensadores, refletem profundamente sobre as questões, são perspicazes e ativos. Deve tomar cuidado para não serem rígidos demais."},
+    {name:"do cavalo", Sdate: [1918, 1930, 1942, 1954, 1966, 1978, 1990, 2002, 2014, 2026], imagem: '<img src = cavalo.jpg>', info:"São desbravadores e livres. Podem ter comportamentos arrogantes e confiar demais em si mesmos. Devem se policiar para não serem impacientes. "},
+    {name:"do carneiro", Sdate: [1919, 1931, 1943, 1955, 1967, 1979, 1991, 2003, 2015, 2027], imagem: '<img src = carneiro.jpg>', info:"Pessoas desse signo se mostram verdadeiras, dignas e sentimentais. São capazes de alcançar seus objetivos com suavidade. Devem ficar atentas para que haja um equilíbrio entre o pensar e o sentir antes de agir e falar."},
+    {name:"do macaco", Sdate: [1920, 1932, 1944, 1956, 1968, 1980, 1992, 2004, 2016, 2028], imagem: '<img src = macaco.jpg>', info:"É o signo dos criativos, improvisadores que resolvem seus problemas de formas diferentes. São capazes de pensar fora da caixa. Devem se policiar para que, na hora de explicar seus atos e ideias, tudo fique claro."},
+    {name:"do galo", Sdate: [1921, 1933, 1945, 1957, 1969, 1981, 1993, 2005, 2017, 2029], imagem: '<img src = galo.jpg>', info:"Pela forma que age, parece ser um destemido. Tem a necessidade de se sentir estável, passa segurança, mas deve tomar cuidado para não acabar exagerando."},
+    {name:"do cachorro", Sdate: [1922, 1934, 1946, 1958, 1970, 1982, 1994, 2006, 2018, 2030], imagem: '<img src = cachorro.jpg>', info:"Sua fidelidade é evidente, assim como a sua estabilidade. Pode ser condescendente se não estiver se sentindo prejudicado. Deve apenas tomar cuidado para não agir de forma intensa demais casa algo o desestabilize."},
+    {name:"do porco", Sdate: [1923, 1935, 1947, 1959, 1971, 1983, 1995, 2007, 2019, 2031], imagem: '<img src = porco.jpg>', info:"É composto de pessoas honradas e verdadeiras. São moralistas, esforçados e vão até o final com suas promessas. Deve ficar atento para não se esquecer da malícia do mundo."}]
+    // aqui abaixo nós temos o método que encontra * find() com uma função dentro que busca se o valor do nascimento está incluso em cada Sdate
+    const sign = signos.find(signos => {return signos.Sdate.includes(nascimento)});
+    // aqui temos um condicional dizendo ao programa que complete a mensagem com a propriedade de nome do elemento onde for encontrada a data e exiba dentro do documento através do innerHTML
+    if (sign) {
+    message.innerHTML = `<h3>Você nasceu no ano <b>${sign.name}!</b>  <br>  ${sign.imagem} <br>${sign.info}</h3>`;
+  }
+    // Para saber mais, click na imagem. - não tenho certeza se vale a pena colocar isso assim ou fazemos do jeito mais simples
+   }
+   // ó = &oacute;  ê = &ecirc; ã = &atilde;
+	// Futuramente incluir descrição sobre o signo = https://www.wemystic.com.br/signos-chineses-caracteristicas/#:~:text=Signos%20chineses%20%E2%80%93%20Boi%20Quem%20nasce%20sob%20o,met%C3%B3dico%20e%20conservador.%20%C3%89%20confi%C3%A1vel%2C%20calmo%20e%20introvertido.
+	
+           </script>
+</head>
+
+<body>
+    <section id ="pergunta">
+    <center>
+        <h2> Gostaria de saber seu signo segundo o hor&oacute;scopo Chin&ecirc;s?</h2>
+        <h4>Basta informar o ano que voc&ecirc; nasceu e confirmar no bot&atilde;o correspondente.</h4>
+        <input type="number" placeholder="Digite aqui" maxlength="4" id="ano"></input>
+        <button onclick="getSign()">Confirmar</button>    
+        <div id= "message" style="margin:25px;"></div>
+    </center>
+</section>
+    <style>
+        :root{
+           width: 100%; 
+           height: 100%;
+        }
+        section{
+            overflow-x: auto;}
+    h2{
+        padding-top: 10%;
+    }
+     h4{
+            font-weight: lighter;
+        }
+    #ano ::-webkit-outer-spin-button, ::-webkit-inner-spin-button {
+        display:none;
+    }    
+        
+    </style>
+        
+</body>
+
+</html>
